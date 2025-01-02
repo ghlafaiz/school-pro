@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4efe4;
+            color: #000000;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .header {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .header img {
+            width: 50px;
+            height: auto;
+            border-radius: 4px;
+        }
+        .form-container {
+            width: 100%;
+            max-width: 800px;
+            background: #f4efe4;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #b30c0c;
+        }
+        .form-group, .question {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .question-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .option {
+            flex: 1 1 calc(33.333% - 10px);
+            background-color: #f0f0f0;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .option input {
+            position: absolute;
+            opacity: 0;
+        }
+        .option:hover, .option.selected {
+            background-color: #c42c2c;
+            color: white;
+            transform: scale(1.05);
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #c42c2c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #7d1f1f;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 14px;
+            color: #c42c2c;
+            background: #fefefe;
+            border-radius: 9px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="photo_2024-12-22_14-23-27.jpg" alt="Logo">
+    </div>
+
+    <div class="form-container">
+        <h1>استبانات</h1>
+        <form id="surveyForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="class">Class:</label>
+                <input type="text" id="class" name="class" placeholder="Enter your Class" required>
+            </div>
+
+            <!-- Question 1 -->
+            <div class="question">
+                <label>1. ماهي لغتك الأم؟</label>
+                <div class="question-options">
+                    <div class="option"><input type="radio" name="q1" value="العربية" required> العربية</div>
+                    <div class="option"><input type="radio" name="q1" value="الإنجليزية" required> الإنجليزية</div>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <label>2. هل لديك معرفة سابقة باللغة الصينية؟</label>
+                <div class="question-options">
+                    <div class="option"><input type="radio" name="q2" value="نعم" required> نعم</div>
+                    <div class="option"><input type="radio" name="q2" value="لا" required> لا</div>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question">
+                <label>3. ما هو سبب اهتمامك بتعلم اللغة الصينية؟</label>
+                <div class="question-options">
+                    <div class="option"><input type="radio" name="q3" value="العمل" required> العمل</div>
+                    <div class="option"><input type="radio" name="q3" value="الدراسة" required> الدراسة</div>
+                    <div class="option"><input type="radio" name="q3" value="السفر" required> السفر</div>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question">
+                <label>4. ما هي طريقة التعلم المفضلة لديك؟</label>
+                <div class="question-options">
+                    <div class="option"><input type="radio" name="q4" value="الدروس التقليدية" required> الدروس التقليدية</div>
+                    <div class="option"><input type="radio" name="q4" value="التعلم الذاتي" required> التعلم الذاتي</div>
+                    <div class="option"><input type="radio" name="q4" value="الدورات عبر الإنترنت" required> الدورات عبر الإنترنت</div>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question">
+                <label>5. كم من الوقت تخطط لتخصيصه لتعلم اللغة الصينية أسبوعياً؟</label>
+                <div class="question-options">
+                    <div class="option"><input type="radio" name="q5" value="أقل من ساعة" required> أقل من ساعة</div>
+                    <div class="option"><input type="radio" name="q5" value="1-3 ساعات" required> 1-3 ساعات</div>
+                    <div class="option"><input type="radio" name="q5" value="أكثر من 5 ساعات" required> أكثر من 5 ساعات</div>
+                </div>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <footer>© منصة التنين</footer>
+
+    <script>
+        const form = document.getElementById('surveyForm');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // جمع البيانات من النموذج
+            const formData = new FormData(form);
+            const entries = Object.fromEntries(formData.entries());
+
+            // إرسال البيانات إلى الخادم
+            fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(entries)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('تم إرسال الاستبيان بنجاح!');
+                form.reset(); // إعادة تعيين النموذج بعد إرسال البيانات
+            })
+            .catch(error => {
+                alert('حدث خطأ أثناء إرسال البيانات.');
+            });
+        });
+
+        // تحسين التفاعل مع الخيارات
+        const options = document.querySelectorAll('.option');
+
+options.forEach(option => {
+    option.addEventListener('click', () => {
+        const input = option.querySelector('input');
+        if (input) {
+            input.checked = true; // تحديد العنصر الإذاعي
+        }
+
+        // إزالة التحديد من الخيارات الأخرى داخل نفس السؤال
+        const siblings = option.parentElement.querySelectorAll('.option');
+        siblings.forEach(sibling => sibling.classList.remove('selected'));
+
+        // إضافة التحديد إلى العنصر الحالي
+        option.classList.add('selected');
+    });
+});
+
+    </script>
+</body>
+</html>
